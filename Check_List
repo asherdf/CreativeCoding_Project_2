@@ -1,0 +1,35 @@
+1) Image of the Sun
+2) Image of the Earth
+	a) Several images to show rotation
+3) Rotate the Earth around the Sun	
+	a) Words rotate along with the Earth
+		i) Words change color with the seasons
+	b) Tint to show the Earth in different seasons
+4) Words to represent seasons
+	a) Spring
+	b) Summer
+	c) Fall
+	d) Winter
+		***function called "Split" to splice text files
+5) Fonts to represent different seasons
+	a) Spring
+	b) Summer
+	c) Fall
+	d) Winter
+
+ORDER OR EXECUTION:
+	--1
+	--2
+	--3
+	--4a
+	--4b
+	--4c
+	--4d
+	3a
+	2a
+	3b
+	3ai
+	5a
+	5b
+	5c
+	5d
