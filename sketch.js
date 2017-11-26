@@ -39,6 +39,8 @@ Resources for fonts:
     Google Fonts*/
 
 
+var synonyms = [];
+
 var sun;
 var earth;
 var autumn;
@@ -48,28 +50,39 @@ var winter;
 
 var angle = 0;
 
+
 //load all the images and text before running the program
 function preload(){
 	sun = loadImage("Images/Sun_2.png");
 	earth = loadImage("Images/Earth_1.jpg");
 
-	autumn = loadStrings('Words/Autumn.txt');
-	spring = loadStrings('Words/Spring.txt');
-	summer = loadStrings('Words/Summer.txt');
-	winter = loadStrings('Words/Winter.txt');
+	// autumn = loadStrings('Words/Autumn.txt');
+	// spring = loadStrings('Words/Spring.txt');
+	// summer = loadStrings('Words/Summer.txt');
+	// winter = loadStrings('Words/Winter.txt');
 }
 
 //---------------------------------------------------------------
 function setup() { 
 	createCanvas(600,600);
 	frameRate(30)
+
+	//create an array of words for each season
+	for (var i = 0; i < 10; i++){
+		synonyms[i] = new Annual();
+	}
 }
 
 //---------------------------------------------------------------
 function draw() {
 	background(0);
 
-	season();
+	for(var i = 0; i < synonyms.length; i++){
+		// synonyms[i].season();
+		synonyms[i].words();
+	}
+
+	//season();
 	
 	imageMode(CENTER);
 	image(sun, (width/2),(height/2));
@@ -94,7 +107,7 @@ function draw() {
 //----------------------------------------------------------------
 function season() {
 
-	var quadrant = PI*angle
+	var quadrant = PI*angle;
 	textSize(32);
 	//console.log(angle);
 	
@@ -117,25 +130,25 @@ function season() {
 	else if ((quadrant > (PI/2)) && (quadrant < PI)){
 		var ind = floor(random(winter.length));
 		fill(255);
-		// text(winter[ind], random(1/2*width),
-		// 				  random((1/2*height), height),
-		// 				  80, 80);
+		text(winter[ind], random(1/2*width),
+						  random((1/2*height), height),
+						  80, 80);
 	}
 	//Earth is in quadrant 3: SPRING
 	else if ((quadrant > PI) && (quadrant < (3*PI/2))){
 		var ind = floor(random(spring.length));
 		fill(0,255,0);
-		// text(spring[ind], random((1/2*width)),
-		// 				  random((1/2*height)),
-		// 				  80, 80);
+		text(spring[ind], random((1/2*width)),
+						  random((1/2*height)),
+						  80, 80);
 	}
 	//Earth is in quadrant 4: SUMMER
 	else if ((quadrant > (3*PI/2)) && (quadrant < (TWO_PI))){
 		var ind = floor(random(summer.length));
 		fill(0,0,255);
-		// text(summer[ind], random((1/2*width), width),
-		// 				  random((1/2*height)),
-		// 				  80, 80);
+		text(summer[ind], random((1/2*width), width),
+						  random((1/2*height)),
+						  80, 80);
 	}
 
 	// //Earth is in quadrant 4: AUTUMN
