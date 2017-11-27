@@ -61,18 +61,22 @@ function preload(){
 	summer = loadStrings('Words/Summer.txt');
 	winter = loadStrings('Words/Winter.txt');
 
+	fontAut = loadFont('Fonts/Fall/mistis-fonts_autumn-moon/Autumn_Moon.ttf');
+	fontSpr = loadFont('Fonts/Spring/nebulo/Nebulo_Demo.ttf');
 	fontSum = loadFont('Fonts/Summer/Mojito-in-june/Mojito_in_June.ttf');
+	fontWin = loadFont('Fonts/Winter/hultog-snowdrift/Hultog_Snowdrift.ttf');
 }
 
 //---------------------------------------------------------------
 function setup() { 
 	createCanvas(600,600);
 	frameRate(30);
-	textFont(fontSum);
+	// textFont(fontSum);
 
 	//create an array of words for each season
 	for (var i = 0; i < 10; i++){
-		syn[i] = new Annual(autumn, spring, summer, winter);
+		syn[i] = new Annual(autumn, spring, summer, winter,
+							fontAut, fontSpr, fontSum, fontWin);
 	}
 }
 
@@ -81,7 +85,7 @@ function draw() {
 	background(0);
 
 	for (var i = 0; i < syn.length; i++){
-		syn[i].yearly();
+		// syn[i].yearly();
 		syn[i].words();
 	}
 
