@@ -51,8 +51,8 @@ var winter;
 
 var angle = 0;
 
-
 //load all the images and text before running the program
+//---------------------------------------------------------------
 function preload(){
 	sun = loadImage("Images/Sun/Suntrace.png");
 	earth = loadImage("Images/Earth/Earth_1.png");
@@ -71,9 +71,8 @@ function preload(){
 //---------------------------------------------------------------
 function setup() { 
 	createCanvas(600,600);
-	frameRate(30);
-	// textFont(fontSum);
-
+	frameRate(10);
+	
 	//create an array of words for each season
 	for (var i = 0; i < 10; i++){
 		syn[i] = new Annual(autumn, spring, summer, winter,
@@ -101,13 +100,10 @@ function draw() {
 		syn[i].yearly();
 		syn[i].words();
 	}
-
-	// season();
 	
 	imageMode(CENTER);
 	image(sun, (width/2),(height/2));
-	//image(earth, (width/2),0, 50,50);
-
+	
 	push();
 		translate(width/2,height/2);
 		var quadrant = PI*angle
@@ -115,74 +111,13 @@ function draw() {
 	
 		planetColor()
 
-		image(earth, (width/2),0, 50,50);	//scaled down
+		image(earth, (width/2)-25,0, 50,50);	//scaled down
 
 		//reset the angle counter
 		if (quadrant < TWO_PI){
 			angle += 0.01;
 		} else { angle = 0; }		
 	pop();
-}
-
-//----------------------------------------------------------------
-function season() {
-
-	var quadrant = PI*angle;
-	textSize(32);
-	//console.log(angle);
-	
-	//This is our quadrant system (I know, weird)
-	//	3	|	4
-	//-------------
-	//	2	|	1
-	//Earth is in quadrant 1: AUTUMN
-	if (quadrant > 0 && (quadrant < (PI/2))){
-		var ind = floor(random(autumn.length));
-		fill(255, 0, 0);
-		if (frameCount % 10 == 6){
-			text(autumn[ind], random((1/2*width), width),
-						  random((1/2*height), height),
-						  80, 80);
-		}
-		
-	}
-	//Earth is in quadrant 2: WINTER
-	else if ((quadrant > (PI/2)) && (quadrant < PI)){
-		var ind = floor(random(winter.length));
-		fill(255);
-		text(winter[ind], random(1/2*width),
-						  random((1/2*height), height),
-						  80, 80);
-	}
-	//Earth is in quadrant 3: SPRING
-	else if ((quadrant > PI) && (quadrant < (3*PI/2))){
-		var ind = floor(random(spring.length));
-		fill(0,255,0);
-		text(spring[ind], random((1/2*width)),
-						  random((1/2*height)),
-						  80, 80);
-	}
-	//Earth is in quadrant 4: SUMMER
-	else if ((quadrant > (3*PI/2)) && (quadrant < (TWO_PI))){
-		var ind = floor(random(summer.length));
-		fill(0,0,255);
-		text(summer[ind], random((1/2*width), width),
-						  random((1/2*height)),
-						  80, 80);
-	}
-
-	// //Earth is in quadrant 4: AUTUMN
-	// if ((quadrant > (3*PI/2)) && (quadrant < (TWO_PI))){
-
-	// //Earth is in quadrant 3: WINTER
-	// else if ((quadrant > PI) && (quadrant < (3*PI/2))){
-
-	// //Earth is in quadrant 2: SPRING
-	// else if ((quadrant > (PI/2)) && (quadrant < PI)){
-
-	// //Earth is in quadrant 1: SUMMER
-	// else if (quadrant > 0 && (quadrant < (PI/2))){
-
 }
 
 //---------------------------------------------------------------
@@ -197,19 +132,18 @@ function planetColor() {
 
 	//Earth is in quadrant 1: AUTUMN
 	if (quadrant > 0 && (quadrant < (PI/2))){
-		tint(232,186,55);
+		tint(autCol);
 	}
 	//Earth is in quadrant 2: WINTER
 	else if ((quadrant > (PI/2)) && (quadrant < PI)){
-		tint(79,231,255);
+		tint(winCol);
 	}
 	//Earth is in quadrant 3: SPRING
 	else if ((quadrant > PI) && (quadrant < (3*PI/2))){
-		tint(55,232,99);
+		tint(sprCol);
 	}
 	//Earth is in quadrant 4: SUMMER
 	else if ((quadrant > (3*PI/2)) && (quadrant < (TWO_PI))){
-		tint(219,255,73);
+		tint(sumCol);
 	}
-
 }

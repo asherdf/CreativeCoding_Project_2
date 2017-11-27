@@ -36,16 +36,12 @@ class Annual{
 
 
 
-	yearly(){
-
-		// if (this.quadrant < TWO_PI){
-		// 		angle += 0.01;
-		// 	} else { angle = 0; }
-		
+	yearly(){		
 		//This is our quadrant system (I know, weird)
 		//	3	|	4
 		//-------------
 		//	2	|	1
+
 		//Earth is in quadrant 1: AUTUMN
 		if ((this.quadrant > 0) && (this.quadrant < (PI/2))){
 			this.season = 1;
@@ -65,44 +61,32 @@ class Annual{
 	}
 
 	words(){
-		// if ((this.quadrant > 0) && (this.quadrant < (PI/2))){
-			
 			var ind = floor(random(this.autumn.length));
 			fill(232,186,55);
 			textFont(this.autumnType);
-			// text(this.autumn, 
-			// 	 this.xAut,this.yAut,
-			// 	 80,80);
 			text(this.autumn[ind], 
 				 this.xAut,this.yAut,
 				 80,80);
-		// }
-		// if (this.season == 2){
+
 			var ind = floor(random(this.winter.length));
 			fill(79,231,255);
 			textFont(this.winterType);
-			// text(this.winter,
-			// 	 this.xWin,this.yWin,
-			// 	 80,80);
 			text(this.winter[ind],
 				 this.xWin,this.yWin,
 				 80,80);
-		// }
-		// if (this.season == 3){
+
 			var ind = floor(random(this.spring.length));
 			fill(55,232,99);
 			textFont(this.springType);
 			text(this.spring[ind], 
 				 this.xSpr,this.ySpr,
 				 80,80);
-		// }
-		// if (this.season == 4){
+
 			var ind = floor(random(this.summer.length));
 			fill(219,255,73);
 			textFont(this.summerType);
 			text(this.summer[ind], 
 				 this.xSum,this.ySum,
 				 80, 80);
-		// }
 	}
 }
