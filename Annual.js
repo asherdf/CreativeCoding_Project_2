@@ -5,23 +5,28 @@ class Annual{
 		this.spring = springString;
 		this.summer = summerString;
 		this.winter = winterString;
+
 		this.angle = 0;
 		this.quadrant = PI*angle;
 		this.season = 1;
-		this.xAut = random((1/2*width), width);	//Autumn
-		this.yAut = random((1/2*height), height);
-		this.xSpr = random((1/2*width));	//Spring
-		this.ySpr = random((1/2*height));
-		this.xSum = random((1/2*width), width);	//Summer
-		this.ySum = random((1/2*height));
-		this.xWin = random(1/2*width);	//Winter
-		this.yWin = random((1/2*height), height);
 
+		//Text locations based on their quadrants
+		this.xAut = floor(random((1/2*width), width));		//Autumn
+		this.yAut = floor(random((1/2*height), height));
+		this.xSpr = floor(random((1/2*width)));				//Spring
+		this.ySpr = floor(random((1/2*height)));
+		this.xSum = floor(random((1/2*width), width));		//Summer
+		this.ySum = floor(random((1/2*height)));
+		this.xWin = floor(random(1/2*width));				//Winter
+		this.yWin = floor(random((1/2*height), height));
+
+		this.autWord = random(this.autumn.length);
+		this.sprWord = 0;
+		this.sumWord = 0;
+		this.winWord = 0;
 
 		textSize(32);
 	}
-
-	//textSize(32);
 
 	yearly(){
 		//This is our quadrant system (I know, weird)

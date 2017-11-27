@@ -60,12 +60,15 @@ function preload(){
 	spring = loadStrings('Words/Spring.txt');
 	summer = loadStrings('Words/Summer.txt');
 	winter = loadStrings('Words/Winter.txt');
+
+	fontSum = loadFont('Fonts/Summer/Mojito-in-june/Mojito_in_June.ttf');
 }
 
 //---------------------------------------------------------------
 function setup() { 
 	createCanvas(600,600);
-	frameRate(30)
+	frameRate(30);
+	textFont(fontSum);
 
 	//create an array of words for each season
 	for (var i = 0; i < 10; i++){
