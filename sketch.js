@@ -69,7 +69,7 @@ function setup() {
 
 	//create an array of words for each season
 	for (var i = 0; i < 10; i++){
-		syn[i] = new Annual(autumn);
+		syn[i] = new Annual(autumn, spring, summer, winter);
 	}
 }
 
