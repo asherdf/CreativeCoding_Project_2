@@ -13,10 +13,10 @@ class Star {
 
 	display(){		
 		noStroke();
-		fill(0,0,360, (this.opac-20));
+		fill(255,255,255, (this.opac-20));
 		ellipse(this.x,this.y, this.starSize,this.starSize);
 		
-		fill(0,0,360, this.opac);
+		fill(255,255,255, this.opac);
 		ellipse(this.x,this.y, this.starSize / 2,this.starSize / 2);
 	}
 

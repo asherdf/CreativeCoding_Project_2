@@ -54,8 +54,8 @@ var angle = 0;
 
 //load all the images and text before running the program
 function preload(){
-	sun = loadImage("Images/Sun_2.png");
-	earth = loadImage("Images/Earth_1.jpg");
+	sun = loadImage("Images/Sun/Suntrace.png");
+	earth = loadImage("Images/Earth/Earth_1.png");
 
 	autumn = loadStrings('Words/Autumn.txt');
 	spring = loadStrings('Words/Spring.txt');
@@ -90,7 +90,6 @@ function setup() {
 function draw() {
 	background(0);
 
-	
 	//stars
 	for (var i = 0; i < stars.length; i++){	
 		stars[i].display();
@@ -99,11 +98,9 @@ function draw() {
 	}
 
 	for (var i = 0; i < syn.length; i++){
-		// syn[i].yearly();
+		syn[i].yearly();
 		syn[i].words();
 	}
-
-
 
 	// season();
 	
@@ -193,21 +190,26 @@ function planetColor() {
 
 	var quadrant = PI*angle
 
+	var autCol = color(232,186,55);
+	var winCol = color(79,231,255);
+	var sprCol = color(55,232,99);
+	var sumCol = color(219,255,73);
+
 	//Earth is in quadrant 1: AUTUMN
 	if (quadrant > 0 && (quadrant < (PI/2))){
-		tint(255,151,96);
+		tint(232,186,55);
 	}
 	//Earth is in quadrant 2: WINTER
 	else if ((quadrant > (PI/2)) && (quadrant < PI)){
-		tint(96,253,255);
+		tint(79,231,255);
 	}
 	//Earth is in quadrant 3: SPRING
 	else if ((quadrant > PI) && (quadrant < (3*PI/2))){
-		tint(24,255,107);
+		tint(55,232,99);
 	}
 	//Earth is in quadrant 4: SUMMER
 	else if ((quadrant > (3*PI/2)) && (quadrant < (TWO_PI))){
-		tint(252,255,119);
+		tint(219,255,73);
 	}
 
 }

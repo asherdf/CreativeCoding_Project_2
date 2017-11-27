@@ -34,7 +34,14 @@ class Annual{
 		this.winterType = winterFont;
 	}
 
+
+
 	yearly(){
+
+		// if (this.quadrant < TWO_PI){
+		// 		angle += 0.01;
+		// 	} else { angle = 0; }
+		
 		//This is our quadrant system (I know, weird)
 		//	3	|	4
 		//-------------
@@ -54,15 +61,14 @@ class Annual{
 		//Earth is in quadrant 4: SUMMER
 		else if ((this.quadrant > (3*PI/2)) && (this.quadrant < (TWO_PI))){
 			this.season = 4;
-			textFont(this.summerType);
 		}
 	}
 
 	words(){
-		// if (this.season == 1){
+		// if ((this.quadrant > 0) && (this.quadrant < (PI/2))){
 			
 			var ind = floor(random(this.autumn.length));
-			fill(255, 0, 0);
+			fill(232,186,55);
 			textFont(this.autumnType);
 			// text(this.autumn, 
 			// 	 this.xAut,this.yAut,
@@ -73,7 +79,7 @@ class Annual{
 		// }
 		// if (this.season == 2){
 			var ind = floor(random(this.winter.length));
-			fill(255);
+			fill(79,231,255);
 			textFont(this.winterType);
 			// text(this.winter,
 			// 	 this.xWin,this.yWin,
@@ -84,7 +90,7 @@ class Annual{
 		// }
 		// if (this.season == 3){
 			var ind = floor(random(this.spring.length));
-			fill(0,255,0);
+			fill(55,232,99);
 			textFont(this.springType);
 			text(this.spring[ind], 
 				 this.xSpr,this.ySpr,
@@ -92,7 +98,7 @@ class Annual{
 		// }
 		// if (this.season == 4){
 			var ind = floor(random(this.summer.length));
-			fill(0,0,255);
+			fill(219,255,73);
 			textFont(this.summerType);
 			text(this.summer[ind], 
 				 this.xSum,this.ySum,
