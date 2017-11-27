@@ -61,20 +61,23 @@ class Annual{
 	words(){
 		// if (this.season == 1){
 			
-			// var ind = floor(random(this.autumn.length));
+			var ind = floor(random(this.autumn.length));
 			fill(255, 0, 0);
 			textFont(this.autumnType);
-			text(this.autumn, 
-				 this.xAut,this.yAut,
-				 80,80);
-			// text(this.autumn[ind], 
+			// text(this.autumn, 
 			// 	 this.xAut,this.yAut,
 			// 	 80,80);
+			text(this.autumn[ind], 
+				 this.xAut,this.yAut,
+				 80,80);
 		// }
 		// if (this.season == 2){
 			var ind = floor(random(this.winter.length));
 			fill(255);
 			textFont(this.winterType);
+			// text(this.winter,
+			// 	 this.xWin,this.yWin,
+			// 	 80,80);
 			text(this.winter[ind],
 				 this.xWin,this.yWin,
 				 80,80);

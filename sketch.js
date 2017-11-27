@@ -40,6 +40,7 @@ Resources for fonts:
 
 
 var syn = [];	//synonyms for the seasons
+var stars = [];
 
 var sun;
 var earth;
@@ -78,16 +79,31 @@ function setup() {
 		syn[i] = new Annual(autumn, spring, summer, winter,
 							fontAut, fontSpr, fontSum, fontWin);
 	}
+
+	//create the array of stars
+	for (var i = 0; i < 150; i++){
+		stars[i] = new Star();
+	}
 }
 
 //---------------------------------------------------------------
 function draw() {
 	background(0);
 
+	
+	//stars
+	for (var i = 0; i < stars.length; i++){	
+		stars[i].display();
+		stars[i].glow();
+		stars[i].shine();
+	}
+
 	for (var i = 0; i < syn.length; i++){
 		// syn[i].yearly();
 		syn[i].words();
 	}
+
+
 
 	// season();
 	
