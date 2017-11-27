@@ -8,6 +8,15 @@ class Annual{
 		this.angle = 0;
 		this.quadrant = PI*angle;
 		this.season = 1;
+		this.xAut = random((1/2*width), width);	//Autumn
+		this.yAut = random((1/2*height), height);
+		this.xSpr = random((1/2*width));	//Spring
+		this.ySpr = random((1/2*height));
+		this.xSum = random((1/2*width), width);	//Summer
+		this.ySum = random((1/2*height));
+		this.xWin = random(1/2*width);	//Winter
+		this.yWin = random((1/2*height), height);
+
 
 		textSize(32);
 	}
@@ -41,30 +50,30 @@ class Annual{
 		// if (this.season == 1){
 			var ind = floor(random(this.autumn.length));
 			fill(255, 0, 0);
-			text(this.autumn[ind], random((1/2*width), width),
-							  random((1/2*height), height),
-							  80, 80);
+			text(this.autumn[ind], 
+				 this.xAut,this.yAut,
+				 80,80);
 		// }
 		// if (this.season == 2){
 			var ind = floor(random(this.winter.length));
 			fill(255);
-			text(this.winter[ind], random(1/2*width),
-							  random((1/2*height), height),
-							  80, 80);
+			text(this.winter[ind],
+				 this.xWin,this.yWin,
+				 80,80);
 		// }
 		// if (this.season == 3){
 			var ind = floor(random(this.spring.length));
 			fill(0,255,0);
-			text(this.spring[ind], random((1/2*width)),
-							  random((1/2*height)),
-							  80, 80);
+			text(this.spring[ind], 
+				 this.xSpr,this.ySpr,
+				 80,80);
 		// }
 		// if (this.season == 4){
 			var ind = floor(random(this.summer.length));
 			fill(0,0,255);
-			text(this.summer[ind], random((1/2*width), width),
-							  random((1/2*height)),
-							  80, 80);
+			text(this.summer[ind], 
+				 this.xSum,this.ySum,
+				 80, 80);
 		// }
 	}
 }
