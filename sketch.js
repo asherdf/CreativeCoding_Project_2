@@ -39,7 +39,7 @@ Resources for fonts:
     Google Fonts*/
 
 
-var synonyms = [];
+var syn = [];	//synonyms for the seasons
 
 var sun;
 var earth;
@@ -56,10 +56,10 @@ function preload(){
 	sun = loadImage("Images/Sun_2.png");
 	earth = loadImage("Images/Earth_1.jpg");
 
-	// autumn = loadStrings('Words/Autumn.txt');
-	// spring = loadStrings('Words/Spring.txt');
-	// summer = loadStrings('Words/Summer.txt');
-	// winter = loadStrings('Words/Winter.txt');
+	autumn = loadStrings('Words/Autumn.txt');
+	spring = loadStrings('Words/Spring.txt');
+	summer = loadStrings('Words/Summer.txt');
+	winter = loadStrings('Words/Winter.txt');
 }
 
 //---------------------------------------------------------------
@@ -69,7 +69,7 @@ function setup() {
 
 	//create an array of words for each season
 	for (var i = 0; i < 10; i++){
-		synonyms[i] = new Annual();
+		syn[i] = new Annual(autumn);
 	}
 }
 
@@ -77,12 +77,12 @@ function setup() {
 function draw() {
 	background(0);
 
-	for(var i = 0; i < synonyms.length; i++){
-		// synonyms[i].season();
-		synonyms[i].words();
+	for (var i = 0; i < syn.length; i++){
+		syn[i].yearly();
+		syn[i].words();
 	}
 
-	//season();
+	// season();
 	
 	imageMode(CENTER);
 	image(sun, (width/2),(height/2));
